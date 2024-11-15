@@ -1,0 +1,14 @@
+
+
+%titleBlock
+    display: flex
+
+@mixin grid-template($desc: 1, $tabBig: 1, $tab: 1, $mob: 1, $gap: 20px)
+    gap: $gap
+    grid-template-columns: repeat($desc, 1fr)
+    @media screen and ( max-width: 1024px )
+        grid-template-columns: repeat($tabBig, 1fr)
+    @media screen and ( max-width: 768px )
+        grid-template-columns: repeat($tab, 1fr)
+    @media screen and ( max-width: 500px )
+        grid-template-columns: repeat($mob, 1fr)
