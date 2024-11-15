@@ -7,7 +7,7 @@ const props = defineProps({
 })
 
 // const projectLink = computed(() => `/projects/${props.project.slug}`)
-const projectLink = ref(`/projects/${props.project.slug}`)
+const projectLink = computed(() => ref(`/projects/${props.project.slug}`))
 
 function truncateText(html: string, limit: number): string {
     const div = document.createElement('div')
@@ -15,6 +15,7 @@ function truncateText(html: string, limit: number): string {
     const text = div.innerText || div.textContent || ''
     return text.length > limit ? text.slice(0, limit) + '...' : text
 }
+
 
 // Сокращаем content до 120 символов
 const truncatedContent = computed(() => {
@@ -25,23 +26,18 @@ const truncatedContent = computed(() => {
 <template>
     <div class="projects-item">
         <div class="projects-item__img">
-            <!-- Проверяем существование og_image -->
             <img v-if="project.yoast_head_json?.og_image?.[0]?.url" 
                  :src="project.yoast_head_json.og_image[0].url" alt="">
         </div>
         <div class="projects-item__text">
             <h3 class="projects-item__title">
-                <!-- <a :href="projectLink" v-html="project.title.rendered"></a> -->
                  <NuxtLink :to="projectLink">
                     <span v-html="project.title.rendered"></span>
                 </NuxtLink>
             </h3>
         </div>
         <div class="projects-item__footer">
-            <!-- <a :href="projectLink" class="projects-item__link">Подробнее</a> -->
-            <!-- <NuxtLink :to="projectLink" class="projects-item__link"> -->
-                <span class="projects-item__link">Подробнее</span>
-            <!-- </NuxtLink> -->
+            <span class="projects-item__link">Подробнее</span>
         </div>
     </div>
 </template>
