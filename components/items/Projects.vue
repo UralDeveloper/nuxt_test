@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-
-// Определяем пропсы
 const props = defineProps({
     project: {
         type: Object,
@@ -9,10 +6,9 @@ const props = defineProps({
     }
 })
 
-// Рекомендовано использовать computed для вычисления ссылок
-const projectLink = computed(() => `/projects/${props.project.slug}`)
+// const projectLink = computed(() => `/projects/${props.project.slug}`)
+const projectLink = ref(`/projects/${props.project.slug}`)
 
-// Функция для сокращения текста без сохранения HTML-тегов
 function truncateText(html: string, limit: number): string {
     const div = document.createElement('div')
     div.innerHTML = html
@@ -35,11 +31,17 @@ const truncatedContent = computed(() => {
         </div>
         <div class="projects-item__text">
             <h3 class="projects-item__title">
-                <a :href="projectLink" v-html="project.title.rendered"></a>
+                <!-- <a :href="projectLink" v-html="project.title.rendered"></a> -->
+                 <NuxtLink :to="projectLink">
+                    <span v-html="project.title.rendered"></span>
+                </NuxtLink>
             </h3>
         </div>
         <div class="projects-item__footer">
-            <a :href="projectLink" class="projects-item__link">Подробнее</a>
+            <!-- <a :href="projectLink" class="projects-item__link">Подробнее</a> -->
+            <!-- <NuxtLink :to="projectLink" class="projects-item__link"> -->
+                <span class="projects-item__link">Подробнее</span>
+            <!-- </NuxtLink> -->
         </div>
     </div>
 </template>

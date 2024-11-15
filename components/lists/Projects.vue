@@ -14,7 +14,7 @@
                 <a href="/projects" class="projects-link">Все проекты</a>
             </div>
             <div class="projects-list">
-                <ProjectsItem v-for="project in projects.slice(0, 6)" :key="project.id" :project="project" />
+                <ProjectsItem v-for="project in projects.slice(0, 12)" :key="project.id" :project="project" />
             </div>
         </div>
     </section>
