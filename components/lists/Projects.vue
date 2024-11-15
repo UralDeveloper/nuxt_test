@@ -2,9 +2,7 @@
     import ProjectsItem from '../items/Projects.vue'
 
     // Fetch data '*/wp-json/wp/v2/posts'
-    // const { data: projects } = await useFetch('/api/projects');
-    const { data: projects } = await useFetch('/api/projects');
-
+    const { data: projects } = await useFetch( '/api/projects', { server : false } )
 
 </script>
 

@@ -52,6 +52,15 @@ export default defineNuxtConfig({
   },
   
   vite: {
+    server: {
+      proxy: {
+        '/api': {
+          target: 'https://alexandr.pw',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '/wp-json/wp/v2')
+        },
+      }
+    },    
     css: {
       preprocessorOptions: {
         sass: {
