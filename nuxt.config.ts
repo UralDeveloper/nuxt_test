@@ -3,12 +3,21 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
+  
+  nitro: {
+    compressPublicAssets: true,
+    vercel: {
+      functions: {
+        maxDuration: 300,
+      }
+    }
+  },
 
   css: [
     '~/assets/css/bootstrap.min.css',
     '~/assets/sass/styles.sass',
   ],
-  
+
   app: {
     head: {
       htmlAttrs: {
@@ -50,24 +59,24 @@ export default defineNuxtConfig({
       // mode: 'out-in',
     },
   },
-  
-  vite: {
-    server: {
+
+  runtimeConfig: {
+    public: {
+      BASE_URL: process.env.BASE_URL || 'https://alexandr.pw',
+    },
+  },
+
+  routeRules: {
+    '/api/wp-json/**': {
       proxy: {
-        '/api': {
-          target: 'https://alexandr.pw',
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, '/wp-json/wp/v2')
-        },
-      }
-    },    
-    css: {
-      preprocessorOptions: {
-        sass: {
-          // additionalData: '@import "@/assets/sass/styles.sass";',
-        }
-      }
-    }
-  }
+        to: `${process.env.BASE_URL}/wp-json/wp/v2/**`,
+      },
+    },
+  },
+
+  router: {
+    mode: 'history',
+    options: {},
+  },
 })
 
