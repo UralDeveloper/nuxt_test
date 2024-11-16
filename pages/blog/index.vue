@@ -18,11 +18,17 @@ if (data.value) {
 
 // Функция для загрузки следующей "страницы" (следующих 3 постов)
 function loadMorePosts() {
-    const start = (currentPage - 1) * postsPerPage
-    const end = currentPage * postsPerPage
-    visiblePosts.value = visiblePosts.value.concat(posts.value.slice(start, end))
-    currentPage++
+    if (!posts.value || !Array.isArray(posts.value)) {
+        console.error("posts.value не является массивом");
+        return;
+    }
+
+    const start = (currentPage - 1) * postsPerPage;
+    const end = currentPage * postsPerPage;
+    visiblePosts.value = visiblePosts.value.concat(posts.value.slice(start, end));
+    currentPage++;
 }
+
 
 // Функция для отслеживания прокрутки
 function handleScroll() {
