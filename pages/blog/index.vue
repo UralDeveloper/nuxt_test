@@ -8,7 +8,7 @@ const postsPerPage = 3 // Количество постов на один "па�
 let currentPage = 1 // Текущая страница
 
 // Загрузка данных из API
-const { data } = await useFetch('https://alexandr.pw/wp-json/wp/v2/posts')
+const { data } = await useFetch('/api/wp-json/posts')
 
 // Добавляем записи в основной массив и отображаем первые 3
 if (data.value) {
