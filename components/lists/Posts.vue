@@ -2,7 +2,7 @@
     import PostsItem from '../items/Posts.vue'
 
     // Fetch data '*/wp-json/wp/v2/posts'
-    const { data: posts } = await useFetch('/api/wp-json/wp/v2/posts')
+    const { data: posts } = await useFetch('/api/wp-json/wp/v2/posts?per_page=3')
 
 </script>
 
@@ -14,7 +14,7 @@
                 <a href="/blog" class="posts-link">Все посты</a>
             </div>
             <div class="posts-list">
-                <PostsItem v-for="post in posts.slice(0, 3)" :key="post.id" :post="post" />
+                <PostsItem v-for="post in posts" :key="post.id" :post="post" />
             </div>
             <div class="posts-sidebar">
                 <ul>
