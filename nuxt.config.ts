@@ -2,7 +2,13 @@
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
   
   nitro: {
     compressPublicAssets: true,
@@ -52,6 +58,30 @@ export default defineNuxtConfig({
           // src: `https://api-maps.yandex.ru/2.1/?apikey=d6cd6610-1c47-469b-a0a8-d3837c41887f&lang=ru_RU&load=Map,Placemark,GeoObject&coordorder=longlat`,
           // src: `https://api-maps.yandex.ru/2.1/?apikey=${process.env.YMAPS_KEY}&lang=ru_RU&coordorder=longlat`,
         },
+        {
+          key: 'bootstrap',
+          type: 'text/javascript',
+          async: true,
+          src: './assets/js/bootstrap.min.js',
+        },
+        {
+          key: 'fancybox',
+          type: 'text/javascript',
+          async: true,
+          src: './assets/js/fancybox.umd.js',
+        },
+        {
+          key: 'swiper',
+          type: 'text/javascript',
+          async: true,
+          src: './assets/js/swiper-bundle.min.js',
+        },
+        {
+          key: 'script',
+          type: 'text/javascript',
+          async: true,
+          src: './assets/js/script.js',
+        },
       ],
     },
     pageTransition: {
@@ -69,7 +99,8 @@ export default defineNuxtConfig({
   routeRules: {
     '/api/wp-json/**': {
       proxy: {
-        to: `${process.env.BASE_URL}/wp-json/wp/v2/**`,
+        // https://alexandr.pw/wp-json/custom/v1/menu/124
+        to: `${process.env.BASE_URL}/wp-json/**`,
       },
     },
   },
@@ -79,4 +110,3 @@ export default defineNuxtConfig({
     options: {},
   },
 })
-

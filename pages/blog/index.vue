@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, watchEffect } from 'vue'
+// import { ref, onMounted, watchEffect } from 'vue'
 import PostsItem from '@/components/items/Posts.vue'
 
 const posts = ref([]) // Хранит все записи
@@ -8,7 +8,7 @@ const postsPerPage = 3 // Количество постов на один "па�
 let currentPage = 1 // Текущая страница
 
 // Загрузка данных из API
-const { data } = await useFetch('/api/wp-json/posts')
+const { data } = await useFetch('/api/wp-json/wp/v2/posts')
 
 // Добавляем записи в основной массив и отображаем первые 3
 if (data.value) {
@@ -18,17 +18,11 @@ if (data.value) {
 
 // Функция для загрузки следующей "страницы" (следующих 3 постов)
 function loadMorePosts() {
-    if (!posts.value || !Array.isArray(posts.value)) {
-        console.error("posts.value не является массивом");
-        return;
-    }
-
-    const start = (currentPage - 1) * postsPerPage;
-    const end = currentPage * postsPerPage;
-    visiblePosts.value = visiblePosts.value.concat(posts.value.slice(start, end));
-    currentPage++;
+    const start = (currentPage - 1) * postsPerPage
+    const end = currentPage * postsPerPage
+    visiblePosts.value = visiblePosts.value.concat(posts.value.slice(start, end))
+    currentPage++
 }
-
 
 // Функция для отслеживания прокрутки
 function handleScroll() {

@@ -8,6 +8,43 @@ $linkColor: #00ade7
     @media screen and ( min-width: 1366px )
         max-width: 1250px
 
+
+.header
+    background-color: #fff
+    position: sticky
+    top: 0
+    z-index: 3
+    padding-left: 28px
+    padding-right: 28px
+    .nav
+        &-link
+            color: $mainBlack
+            font-weight: 500
+            border-radius: 8px
+            padding: 8px 16px !important
+            &:hover
+                background-color: lighten($mainGray, 42%)
+    &-navbar
+        .navbar
+            &-container
+                gap: 0 60px
+            &-brand
+                color: $mainBlack
+                font-weight: 600
+                text-transform: uppercase
+                font-size: 24px
+                margin-right: 0
+                span
+                    &:nth-child(1)
+                        color: red
+                        line-height: 1em
+                    &:nth-child(2)
+                        font-size: 16px
+                        text-transform: lowercase
+                        line-height: 1em
+            &-nav
+                gap: 0 20px
+
 .titleBlock
     margin-bottom: 24px
     display: flex
@@ -41,6 +78,9 @@ $linkColor: #00ade7
         border: 1px solid #e5e7eb
         overflow: hidden
         position: relative
+        display: flex
+        flex-direction: column
+        justify-content: space-between
         &__img
             background-color: #f5f5f4
             display: flex
@@ -58,7 +98,9 @@ $linkColor: #00ade7
                 transition: all .3s
         &__text
             padding: 20px 20px 0
+            flex: 1 1 auto
         &__title
+            display: flex
             a
                 color: $mainBlack
                 text-decoration: none

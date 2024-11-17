@@ -2,7 +2,7 @@
     import PostsItem from '../items/Posts.vue'
 
     // Fetch data '*/wp-json/wp/v2/posts'
-    const { data: posts } = await useFetch('/api/wp-json/posts')
+    const { data: posts } = await useFetch('/api/wp-json/wp/v2/posts')
 
 </script>
 

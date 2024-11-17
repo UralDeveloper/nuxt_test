@@ -19,7 +19,7 @@
                 <a href="/tags">PHP</a>
                 <a href="/tags">WordPress</a>
             </span>
-            <a href="/blog/single-post" class="posts-item__link">Подробнее</a>
+            <NuxtLink :to="postLink" class="posts-item__link">Подробнее</NuxtLink>
         </div>
     </div>
 </template>

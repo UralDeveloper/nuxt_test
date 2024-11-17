@@ -1,9 +1,6 @@
 <script setup lang="ts">
     import ProjectsItem from '../items/Projects.vue'
-
-    // Fetch data '*/wp-json/wp/v2/posts'
-    // const { data: projects } = await useFetch( 'https://alexandr.pw/wp-json/wp/v2/projects')
-    const { data: projects } = await useFetch('/api/wp-json/projects')
+    const { data: projects } = await useFetch('/api/wp-json/wp/v2/projects')
 </script>
 
 <template>
@@ -11,10 +8,10 @@
         <div class="projects-container container">
             <div class="titleBlock projects-titleBlock">
                 <h2 class="title projects-title"># Проекты</h2>
-                <a href="/projects" class="projects-link">Все проекты</a>
+                <NuxtLink href="/projects" class="projects-link">Все проекты</NuxtLink>
             </div>
             <div class="projects-list">
-                <ProjectsItem v-for="project in projects.slice(0, 12)" :key="project.id" :project="project" />
+                <ProjectsItem v-for="project in projects.slice(0, 6)" :key="project.id" :project="project" />
             </div>
         </div>
     </section>

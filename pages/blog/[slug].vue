@@ -7,7 +7,7 @@ const { slug } = route.params
 
 // Запрашиваем пост по slug
 const { data: postData } = await useAsyncData(`post:${slug}`, () => 
-  $fetch(`/api/wp-json/posts/?slug=${slug}`)
+  $fetch(`/api/wp-json/wp/v2/posts/?slug=${slug}`)
 )
 </script>
 

@@ -1,7 +1,8 @@
 <template>
   <div class="app">
     <NuxtLayout name="default">
-      <Header />
+      <LayoutHeader />
+      <NuxtLoadingIndicator />
       <NuxtRouteAnnouncer />
       <NuxtPage />
     </NuxtLayout>

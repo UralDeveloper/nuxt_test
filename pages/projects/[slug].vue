@@ -8,7 +8,7 @@ const { slug } = route.params
 // Запрашиваем пост по slug
 const { data: postData } = await useAsyncData(`post:${slug}`, () => 
 // const { data: projects } = await useFetch('/api/wp-json/projects')
-  $fetch(`/api/wp-json/projects/?slug=${slug}`)
+  $fetch(`/api/wp-json/wp/v2/projects/?slug=${slug}`)
 )
 </script>
 
@@ -27,7 +27,7 @@ const { data: postData } = await useAsyncData(`post:${slug}`, () =>
         <div class="singlePost-thumbnail">
             <img :src="postData[0].yoast_head_json.og_image[0].url" alt="">
         </div>
-      <h1>{{ postData[0].title.rendered }}</h1>
+      <h1 v-html="postData[0].title.rendered"></h1>
       <div v-html="postData[0].content.rendered"></div>
     </div>
   </div>
