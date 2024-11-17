@@ -52,13 +52,6 @@ export default defineNuxtConfig({
   
       script: [
         {
-          key: 'ymap',
-          type: 'text/javascript',
-          async: true,
-          // src: `https://api-maps.yandex.ru/2.1/?apikey=d6cd6610-1c47-469b-a0a8-d3837c41887f&lang=ru_RU&load=Map,Placemark,GeoObject&coordorder=longlat`,
-          // src: `https://api-maps.yandex.ru/2.1/?apikey=${process.env.YMAPS_KEY}&lang=ru_RU&coordorder=longlat`,
-        },
-        {
           key: 'bootstrap',
           type: 'text/javascript',
           async: true,

@@ -2,7 +2,7 @@
     <div class="header">
         <nav class="navbar navbar-expand-lg header-navbar">
             <div class="container-fluid navbar-container">
-                <NuxtLink class="navbar-brand" :to="{ name: 'index' }">
+                <NuxtLink class="navbar-brand" :to="ref('/')">
                     Alexandr<span>.</span><span>pw</span>
                 </NuxtLink>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

@@ -18,7 +18,7 @@ const { data: menuData, pending, error } = await useAsyncData('menu', () =>
     <li v-else v-for="item in menuData" :key="item.ID" class="nav-item">
       <NuxtLink
         class="nav-link"
-        :href="item.url"
+        :to="item.url"
         rel="noopener noreferrer"
       >
         {{ item.title }}

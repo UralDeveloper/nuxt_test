@@ -8,7 +8,7 @@
         <div class="projects-container container">
             <div class="titleBlock projects-titleBlock">
                 <h2 class="title projects-title"># Проекты</h2>
-                <NuxtLink href="/projects" class="projects-link">Все проекты</NuxtLink>
+                <NuxtLink :to="ref('/projects')" class="projects-link">Все проекты</NuxtLink>
             </div>
             <div class="projects-list">
                 <ProjectsItem v-for="project in projects" :key="project.id" :project="project" />
