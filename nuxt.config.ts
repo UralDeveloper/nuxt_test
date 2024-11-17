@@ -49,33 +49,6 @@ export default defineNuxtConfig({
           // href: `/favicon-${domain}.ico`,
        },
       ],
-  
-      script: [
-        {
-          key: 'bootstrap',
-          type: 'text/javascript',
-          async: true,
-          src: './assets/js/bootstrap.min.js',
-        },
-        {
-          key: 'fancybox',
-          type: 'text/javascript',
-          async: true,
-          src: './assets/js/fancybox.umd.js',
-        },
-        {
-          key: 'swiper',
-          type: 'text/javascript',
-          async: true,
-          src: './assets/js/swiper-bundle.min.js',
-        },
-        {
-          key: 'script',
-          type: 'text/javascript',
-          async: true,
-          src: './assets/js/script.js',
-        },
-      ],
     },
     pageTransition: {
       // name: 'page',
